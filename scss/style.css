@@ -1,0 +1,260 @@
+.dimm {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(17, 17, 17, 0.8);
+  transition: opacity 0.3s;
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+.dimm.on {
+  opacity: 1;
+  height: 100vh;
+  z-index: 20;
+}
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  margin: -1px;
+}
+
+.skip {
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+.skip a {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  text-indent: -9999px;
+}
+.skip a:focus, .skip a:active {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 14px;
+  text-indent: 0;
+  text-align: center;
+  color: #fff;
+  background: #444;
+}
+
+.wrapper {
+  min-width: 320px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::-moz-selection {
+  background-color: #000;
+  color: #fff;
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+input,
+select,
+textarea,
+button,
+table {
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+  letter-spacing: -1px;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  cursor: default;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+}
+
+html, body {
+  height: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+address, em {
+  font-style: normal;
+}
+
+fieldset {
+  border: 0;
+}
+
+html {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  font-size: 14px;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  color: #000;
+}
+body.on {
+  overflow: hidden;
+}
+
+iframe {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../font/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../font/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../font/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "PP Mori";
+  src: url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.eot");
+  src: url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.woff") format("woff"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.svg#PP Mori SemiBold") format("svg");
+}
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.inner-header {
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gnb-wrap {
+  position: fixed;
+  left: 0;
+  top: -100%;
+}
+.gnb-wrap .gnb {
+  display: flex;
+  gap: 5px;
+}
+
+.section .inner {
+  padding: 3em 1em;
+  height: 100%;
+}
+
+.section-tit {
+  font-family: "PP Mori", sans-serif;
+  font-weight: 700;
+}
+
+.visual {
+  padding-top: 60px;
+  height: 60vh;
+}
+.visual .visual-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.visual .visual-wrap h3 {
+  font-size: 16vw;
+  letter-spacing: -2px;
+}
+.visual .visual-wrap p {
+  font-size: 6vw;
+}/*# sourceMappingURL=style.css.map */

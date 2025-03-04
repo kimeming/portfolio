@@ -1,0 +1,18 @@
+// style.scss
+
+// common
+@import "./common/common";
+@import "./common/reset";
+@import "./common/font";
+
+// util
+@import "./util/mixin";
+@import "./util/variables";
+
+// layout
+@import "./layout/header";
+@import "./layout/footer";
+
+// page
+@import "./pages/main";
+

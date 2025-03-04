@@ -1,0 +1,30 @@
+.section {
+  .inner {
+    padding: 3em 1em;
+    height: 100%;
+  }
+}
+.section-tit {
+  font-family: "PP Mori", sans-serif;
+  font-weight: 700;
+}
+
+.visual {
+  padding-top: 60px;
+  height: 60vh;
+  .visual-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        font-size: 16vw;
+        letter-spacing: -2px;
+      }
+      p {
+        font-size: 6vw;
+      }
+  }
+}
