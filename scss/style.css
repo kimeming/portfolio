@@ -55,20 +55,10 @@
 }
 
 .wrapper {
-  min-width: 320px;
+  min-width: 280px;
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-::-moz-selection {
-  background-color: #000;
-  color: #fff;
-}
-
-::selection {
-  background-color: #000;
-  color: #fff;
 }
 
 .medium {
@@ -170,7 +160,8 @@ body {
   font-size: 14px;
   letter-spacing: -1px;
   line-height: 1.4;
-  color: #000;
+  color: #fff;
+  background-color: #000;
 }
 body.on {
   overflow: hidden;
@@ -199,12 +190,13 @@ iframe {
   font-weight: 700;
 }
 @font-face {
-  font-family: "PP Mori";
-  src: url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.eot");
-  src: url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.woff") format("woff"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/7e39d05fff188430a1cb860db9b38881.svg#PP Mori SemiBold") format("svg");
+  font-family: "Moderniz";
+  src: url("../../font/Moderniz.woff") format("woff");
+  font-weight: 700;
 }
 .header {
   position: fixed;
+  z-index: 30;
   left: 0;
   top: 0;
   width: 100%;
@@ -212,21 +204,110 @@ iframe {
 }
 
 .inner-header {
+  position: relative;
   height: 100%;
   padding: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .gnb-wrap {
   position: fixed;
   left: 0;
   top: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: top 0.5s;
+}
+.gnb-wrap.open {
+  top: 0;
 }
 .gnb-wrap .gnb {
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: min(10vw, 80px);
+  gap: 0.3em;
+}
+
+.header-util {
+  position: absolute;
+  right: 20px;
+}
+.header-util .menu-btn {
+  width: 24px;
+  height: 24px;
+}
+.header-util .menu-btn .line {
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  top: -2px;
+}
+.header-util .menu-btn .line::before, .header-util .menu-btn .line::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.header-util .menu-btn .line::before {
+  top: -7px;
+}
+.header-util .menu-btn .line::after {
+  bottom: -7px;
+}
+.header-util .menu-btn.on .line {
+  background-color: transparent;
+}
+.header-util .menu-btn.on .line::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.header-util .menu-btn.on .line::after {
+  transform: rotate(45deg);
+  bottom: 0;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 60px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.contact-wrap p {
+  font-weight: 700;
+  font-size: max(12vw, 40px);
+  line-height: 1;
+}
+.contact-wrap .link-list {
+  margin-top: 1em;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.copyright {
+  text-align: center;
 }
 
 .section .inner {
@@ -235,26 +316,28 @@ iframe {
 }
 
 .section-tit {
-  font-family: "PP Mori", sans-serif;
+  font-family: "Moderniz", sans-serif;
   font-weight: 700;
+  font-size: 10vw;
 }
 
-.visual {
-  padding-top: 60px;
-  height: 60vh;
+.video-wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
-.visual .visual-wrap {
+.video-wrap video {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.4;
 }
-.visual .visual-wrap h3 {
-  font-size: 16vw;
-  letter-spacing: -2px;
-}
-.visual .visual-wrap p {
-  font-size: 6vw;
+.video-wrap h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 100%;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

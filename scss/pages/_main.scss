@@ -5,26 +5,29 @@
   }
 }
 .section-tit {
-  font-family: "PP Mori", sans-serif;
+  font-family: "Moderniz", sans-serif;
   font-weight: 700;
+  font-size: 10vw;
 }
 
-.visual {
-  padding-top: 60px;
-  height: 60vh;
-  .visual-wrap {
+// section visual
+.video-wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  video {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    h3 {
-        font-size: 16vw;
-        letter-spacing: -2px;
-      }
-      p {
-        font-size: 6vw;
-      }
+    object-fit: cover;
+    opacity: .4;
+  }
+
+  h3 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
   }
 }
