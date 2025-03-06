@@ -9,13 +9,13 @@ $desktop: 1200px;
 }
 
 @mixin sdesktop(){
-    @media (max-width:$sdesktop) {
+    @media (min-width: $sdesktop) {
         @content;
     }
 }
 
 @mixin desktop(){
-    @media (max-width:$desktop) {
+    @media (min-width: $desktop) {
         @content;
     }
 }

@@ -1,16 +1,21 @@
+@import "../util/mixin";
+@import "../util/variables";
+
 .footer {
   margin-top: auto;
   padding: 60px 20px 14px;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  background-color: $black;
+  position: relative;
 }
 
 .contact-wrap {
   p {
     font-weight: 700;
-    font-size: max(12vw, 40px);
-    line-height: 1;
+    font-size: max(7vw, 40px);
+    font-family: $moderniz;
   }
 
   .link-list {

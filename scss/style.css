@@ -1,3 +1,24 @@
+body {
+  font-size: 14px;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  color: #fff;
+  background-color: #000;
+}
+body.on {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+}
 .dimm {
   position: fixed;
   left: 0;
@@ -156,17 +177,6 @@ html {
   font-weight: 400;
 }
 
-body {
-  font-size: 14px;
-  letter-spacing: -1px;
-  line-height: 1.4;
-  color: #fff;
-  background-color: #000;
-}
-body.on {
-  overflow: hidden;
-}
-
 iframe {
   overflow: hidden;
   margin: 0;
@@ -292,12 +302,14 @@ iframe {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  background-color: #000;
+  position: relative;
 }
 
 .contact-wrap p {
   font-weight: 700;
-  font-size: max(12vw, 40px);
-  line-height: 1;
+  font-size: max(7vw, 40px);
+  font-family: "Moderniz", sans-serif;
 }
 .contact-wrap .link-list {
   margin-top: 1em;
@@ -310,6 +322,10 @@ iframe {
   text-align: center;
 }
 
+.main-container {
+  padding-top: 100vh;
+}
+
 .section .inner {
   padding: 3em 1em;
   height: 100%;
@@ -318,7 +334,25 @@ iframe {
 .section-tit {
   font-family: "Moderniz", sans-serif;
   font-weight: 700;
-  font-size: 10vw;
+  font-size: 9vw;
+}
+
+.contents-wrap {
+  position: relative;
+  background-color: #000;
+}
+
+@media (min-width: 768px) {
+  .section-tit {
+    font-size: min(5vw, 80px);
+  }
+}
+.visual {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .video-wrap {
@@ -340,4 +374,9 @@ iframe {
   translate: -50% -50%;
   width: 100%;
   text-align: center;
+  padding: 0 18px;
+}
+
+.about-wrap h3 {
+  margin-bottom: 18px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,29 @@
 // common.css
+@import "../util/mixin";
+@import "../util/variables";
+body {
+  font-size: 14px;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  color: #fff;
+  background-color: $black;
 
+  &.on {
+    overflow: hidden;
+  }
+}
+
+@include tablet() {
+  body {
+    font-size: 16px;
+  }
+}
+
+@include desktop() {
+  body {
+    font-size: 18px;
+  }
+}
 
 // 딤 레이어
 .dimm {
@@ -58,7 +82,7 @@
       line-height: 14px;
       text-indent: 0;
       text-align: center;
-      color: #fff;
+      color: $white;
       background: #444;
     }
   }
@@ -85,7 +109,7 @@ table {
   border: none;
   background: none;
   font-size: 14px;
-  font-family: "Pretendard", sans-serif;
+  font-family: $pretendard;
   font-weight: 400;
   letter-spacing: -1px;
   appearance: none;
