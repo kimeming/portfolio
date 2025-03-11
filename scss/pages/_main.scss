@@ -7,8 +7,9 @@
 
 .section {
   .inner {
-    padding: 3em 1em;
+    padding: 6em 1.5em;
     height: 100%;
+    margin: 0 auto;
   }
 }
 .section-tit {
@@ -27,6 +28,14 @@
     font-size: min(5vw, 80px);
   }
 }
+
+@include sdesktop{
+  .section {
+    .inner {
+      max-width: 90vw;
+    }
+  }
+} 
 
 // section visual
 .visual {
@@ -59,14 +68,30 @@
 }
 
 // section about
+.about {
+  .inner {
+    padding: 10em 1em;
+  }
+}
 .about-wrap {
   h3 {
     margin-bottom: 18px;
   }
 
-  .zigizag-list {
+  .about-list {
     display: flex;
     flex-direction: column;
+    > li {
+      display: flex;
+      flex-direction: column;
+      padding: 2em 0;
+      word-break: keep-all;
+      p {
+        font-size: 2em;
+        font-weight: 700;
+        margin-bottom: 0.5em;
+      }
+    }
   }
 }
 
@@ -90,7 +115,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5)
+    background: rgba(0,0,0,0.7)
   }
 
   .img-box {
@@ -108,18 +133,92 @@
     top: 0;
     width: 100%;
     height: 100%;
+    padding: 0 20px;
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1em;
 
     .title {
       padding: 0 10px;
-      font-size: 2em;
+      font-size: 3em;
       font-family: $moderniz;
       text-align: center;
+      margin-bottom: 0.5em;
+    }
+
+    .summary {
+      text-align: center;
+      color: #bbb;
+      word-break: keep-all;
+      font-size: 1.2em;
+      .exclam {
+        color: #fff;
+      }
+    }
+
+    .link-list {
+      display: flex;
+      gap: 1em;
+      a {
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+        display: block;
+        padding: 4px 20px;
+        border-radius: 5px;
+      }
+    }
+
+    .label {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      li:not(:first-child) {
+        color: #bbb;
+      }
     }
   }
 }
 
+// section project
+.project-list {
+  margin-top: 2em;
+  > li {
+    padding: 2em;
+    border-bottom: 1px solid #666;
+    transition: background-color .3s;
+    &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+  }
+
+  .index {
+    display: block;
+    padding-bottom: .8em;
+  }
+  .project-title {
+    font-size: 1.7em;
+    font-weight: 700;
+  }
+
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
+    margin: .8em 0;
+    font-size: 1.14em;
+  }
+
+  .label {
+    font-size: 14px;
+    color: #bbb;
+    display: flex;
+    gap: 0.3em;
+  }
+}
+
+.sub-text {
+  padding: 1em 0;
+}

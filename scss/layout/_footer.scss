@@ -3,12 +3,18 @@
 
 .footer {
   margin-top: auto;
-  padding: 60px 20px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
   background-color: $black;
   position: relative;
+
+  .inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 60px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .contact-wrap {
@@ -16,6 +22,20 @@
     font-weight: 700;
     font-size: max(7vw, 40px);
     font-family: $moderniz;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 10px;
+      width: 0;
+      height: 10px;
+      background-color: rgba(255,255,255,0.3);
+      transition: width .4s;
+    }
+    &:hover::after {
+      width: 90%;
+    }
   }
 
   .link-list {
@@ -23,9 +43,26 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    a {
+      transition: color .3s;
+      &:hover {
+        color: $point-color;
+      }
+    }
   }
 }
 
 .copyright {
-    text-align: center;
+  text-align: center;
+}
+
+@include desktop{
+  .contact-wrap {
+    p {
+      &::after {
+        height: 25px;
+        bottom: 25px;
+      }
+    }
+  }
 }
