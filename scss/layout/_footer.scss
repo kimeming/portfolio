@@ -23,6 +23,7 @@
     font-size: max(7vw, 40px);
     font-family: $moderniz;
     position: relative;
+    line-height: 1;
     &::after {
       content: '';
       display: block;
@@ -34,7 +35,7 @@
       transition: width .4s;
     }
     &:hover::after {
-      width: 90%;
+      width: 100%;
     }
   }
 

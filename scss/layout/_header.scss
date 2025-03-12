@@ -22,7 +22,8 @@
 
 .logo {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 700;
+  font-family: $moderniz;
 }
 
 .gnb-wrap {
@@ -52,7 +53,7 @@
     margin: 0 auto;
     li {
       a {
-        transition: .3s ease-in-out;
+        transition: color 0.3s ease-in-out;
         &:hover {
           color: $point-color;
         }
@@ -74,10 +75,6 @@
       right: 8vw;
       bottom: 0;
       rotate: 45deg;
-    }
-
-    &.object02 {
-     
     }
   }
 }
@@ -105,7 +102,7 @@
         width: 100%;
         height: 2px;
         background-color: #fff;
-        transition: .3s;
+        transition: 0.3s;
       }
 
       &::before {
@@ -127,6 +124,34 @@
         &::after {
           transform: rotate(45deg);
           bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@include tablet{
+  .logo {
+    font-size: 32px;
+  }
+  .header-util {
+    .menu-btn {
+      width: 40px;
+      height: 40px;
+
+      .line {
+        height: 3px;
+        &::before,
+        &::after {
+          height: 3px;
+        }
+
+        &::before {
+          top: -11px;
+        }
+  
+        &::after {
+          bottom: -11px;
         }
       }
     }
