@@ -88,7 +88,7 @@
 }
 .about-wrap {
   h3 {
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
   }
 
   h4 {
@@ -122,7 +122,7 @@
   gap: 1em;
   margin-top: 2em;
   img {
-    transition: translate .3s;
+    transition: translate 0.3s;
     translate: 0 0;
   }
 }
@@ -136,7 +136,6 @@
   }
 }
 
-
 @include tablet {
   .skill-list {
     img {
@@ -148,9 +147,6 @@
     }
   }
 }
-
-
-
 
 // section personal
 .project-wrap {
@@ -315,7 +311,7 @@
   }
 
   .label {
-    font-size: .9em;
+    font-size: 0.9em;
     color: #bbb;
     display: flex;
     flex-wrap: wrap;
@@ -347,7 +343,7 @@
 .underline {
   position: relative;
   &::after {
-    content: '';
+    content: "";
     display: inline-block;
     width: 100%;
     height: 8px;
@@ -358,25 +354,34 @@
   }
 }
 
-
 // section goal
 .goal {
+  position: relative;
+
+  .inner {
+    padding: 12em 3em;
+  }
+
   .section-tit {
     text-align: center;
   }
-}
-.goal-wrap {
-  margin-top: 2em;
-  .text-box {
-    font-size: 1.2em;
-    text-align: center;
-    color: #bbb;
-    .exclam {
-      color: #fff;
-    }
-  }
-  
+
   .bg-box {
-    background: url("../img/icon-object04.png");
+    position: absolute;
+    right: 6vw;
+    top: 0;
+    filter: blur(1px);
+  }
+
+  .goal-wrap {
+    margin-top: 2em;
+    .text-box {
+      font-size: 1.2em;
+      text-align: center;
+      color: #bbb;
+      .exclam {
+        color: #fff;
+      }
+    }
   }
 }

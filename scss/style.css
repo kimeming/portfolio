@@ -791,21 +791,29 @@ iframe {
   bottom: 2px;
 }
 
+.goal {
+  position: relative;
+}
+.goal .inner {
+  padding: 12em 3em;
+}
 .goal .section-tit {
   text-align: center;
 }
-
-.goal-wrap {
+.goal .bg-box {
+  position: absolute;
+  right: 6vw;
+  top: 0;
+  filter: blur(1px);
+}
+.goal .goal-wrap {
   margin-top: 2em;
 }
-.goal-wrap .text-box {
+.goal .goal-wrap .text-box {
   font-size: 1.2em;
   text-align: center;
   color: #bbb;
 }
-.goal-wrap .text-box .exclam {
+.goal .goal-wrap .text-box .exclam {
   color: #fff;
-}
-.goal-wrap .bg-box {
-  background: url("../img/icon-object04.png");
 }/*# sourceMappingURL=style.css.map */
