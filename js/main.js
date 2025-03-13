@@ -14,7 +14,11 @@ function renderProjects() {
           <div class="text-box">
             <p class="text">${project.detail}</p>
             <ul class="label">
-              ${Array.isArray(project.label) ? project.label.map((item) => `<li>${item}</li>`).join("") : ""}
+              ${
+                Array.isArray(project.label)
+                  ? project.label.map((item) => `<li>${item}</li>`).join("")
+                  : ""
+              }
             </ul>
           </div>
         </a>
@@ -37,29 +41,29 @@ $(() => {
   }
   requestAnimationFrame(raf);
 
-  // 마우스 커서 애니메이션 최적화
+
   const cursor = document.querySelector(".cursor");
-  let mouseX = 0, mouseY = 0, isMoving = false;
 
   document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    if (!isMoving) {
-      isMoving = true;
-      requestAnimationFrame(updateCursor);
-    }
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+    cursor.animate(
+      {
+        top: `${e.clientY}px`,
+        left: `${e.clientX}px`,
+      },
+      { duration: 300, fill: "forwards" }
+    );
   });
 
-  function updateCursor() {
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    isMoving = false;
-  }
-
   document.addEventListener("mousedown", () => cursor.classList.add("clicked"));
-  document.addEventListener("mouseup", () => cursor.classList.remove("clicked"));
+  document.addEventListener("mouseup", () =>cursor.classList.remove("clicked"));
+
   $("a, button").on("mouseover", () => cursor.classList.add("pointer"));
   $("a, button").on("mouseout", () => cursor.classList.remove("pointer"));
+
+  $(".project-list a").on("mouseover", () => cursor.classList.add("type2"));
+  $(".project-list a").on("mouseout", () => cursor.classList.remove("type2"));
 
   // main gnb
   const $menuBtn = $(".menu-btn"),
@@ -79,7 +83,8 @@ $(() => {
   // fadeUp animation 최적화
   function fadeUp() {
     let $window = $(window);
-    let delayPosition = 50, windowHeight;
+    let delayPosition = 50,
+      windowHeight;
 
     function insertTargetPosition() {
       windowHeight = $window.height();
@@ -94,9 +99,15 @@ $(() => {
     $window.on("scroll", function () {
       let position = $window.scrollTop() + windowHeight - delayPosition;
       $(".fade-wrap.fade-up .fade-box").each(function () {
-        if (!$(this).hasClass("fadeUp") && $(this).data("offsetTop") < position) {
+        if (
+          !$(this).hasClass("fadeUp") &&
+          $(this).data("offsetTop") < position
+        ) {
           $(this).addClass("fadeUp");
-        } else if ($(this).hasClass("fadeUp") && $(this).data("offsetTop") > position) {
+        } else if (
+          $(this).hasClass("fadeUp") &&
+          $(this).data("offsetTop") > position
+        ) {
           $(this).removeClass("fadeUp");
         }
       });

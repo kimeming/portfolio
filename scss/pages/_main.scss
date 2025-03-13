@@ -104,6 +104,10 @@
         font-weight: 700;
         margin-bottom: 0.5em;
       }
+
+      span {
+        font-size: 1.1em;
+      }
     }
   }
 }
@@ -266,34 +270,4 @@
   padding: 1em 0;
 }
 
-// cursor
-@include sdesktop{
-  .cursor {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: $white;
-    position: fixed;
-    z-index: 15;
-    mix-blend-mode: difference;
-    span {
-      display: none;
-    }
 
-    &.pointer {
-      mix-blend-mode: normal;
-      backdrop-filter: blur(10px);
-      display: flex;
-      width: 100px;
-      height: 100px;
-      color: $black;
-      background-color: rgba(255,255,255,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      span {
-        display: block;
-      }
-    }
-  }
-}
