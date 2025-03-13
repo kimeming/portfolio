@@ -88,7 +88,12 @@
 }
 .about-wrap {
   h3 {
+    margin-bottom: .2em;
+  }
+
+  h4 {
     margin-bottom: 18px;
+    font-size: 1.3em;
   }
 
   .about-list {
@@ -350,5 +355,28 @@
     position: absolute;
     left: 0;
     bottom: 2px;
+  }
+}
+
+
+// section goal
+.goal {
+  .section-tit {
+    text-align: center;
+  }
+}
+.goal-wrap {
+  margin-top: 2em;
+  .text-box {
+    font-size: 1.2em;
+    text-align: center;
+    color: #bbb;
+    .exclam {
+      color: #fff;
+    }
+  }
+  
+  .bg-box {
+    background: url("../img/icon-object04.png");
   }
 }
