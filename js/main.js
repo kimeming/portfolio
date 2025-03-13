@@ -52,7 +52,7 @@ $(() => {
         top: `${e.clientY}px`,
         left: `${e.clientX}px`,
       },
-      { duration: 300, fill: "forwards" }
+      { duration: 100, fill: "forwards" }
     );
   });
 
