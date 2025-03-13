@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-size: 14px;
   letter-spacing: -1px;
@@ -114,6 +115,54 @@ table {
   color: #fbc1d4;
 }
 
+/* fade up effect s */
+.fade-wrap.fade-up {
+  overflow: hidden;
+}
+
+.fade-wrap.fade-up .fade-box.fadeUp {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-wrap.fade-up .fade-box {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s;
+}
+
+/* fade up effect e */
+/* custom cursor s - pc에서만 노출됨 */
+@media screen and (min-width: 1024px) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: -1.5rem;
+    background: var(--point-color);
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    mix-blend-mode: difference;
+    transition: 0.3s;
+  }
+  .cursor.clicked {
+    background-color: var(--darkpink);
+  }
+  .cursor.pointer {
+    scale: 3;
+  }
+}
+@media (any-pointer: fine) {
+  .cursor {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+/* custom cursor e */
 * {
   margin: 0;
   padding: 0;
@@ -372,7 +421,6 @@ iframe {
   font-size: max(7vw, 40px);
   font-family: "Moderniz", sans-serif;
   position: relative;
-  line-height: 1;
 }
 .contact-wrap p::after {
   content: "";
@@ -469,8 +517,19 @@ iframe {
   width: 100%;
   text-align: center;
   padding: 0 18px;
+  animation: fadeIn 1s ease-in-out;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    translate: -50% 0;
+  }
+  100% {
+    opacity: 1;
+    translate: -50% -50%;
+  }
+}
 .about .inner {
   padding: 10em 1em;
 }

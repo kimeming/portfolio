@@ -1,9 +1,8 @@
 import { projects } from "./data-works.js";
 
 function renderProjects() {
-  const projectList = document.querySelector(".project-list"); // ✅ 올바른 선택자
-
-  if (!projectList) return; // ✅ 요소가 없으면 실행 안 함
+  const projectList = document.querySelector(".project-list");
+  if (!projectList) return;
 
   projectList.innerHTML = projects
     .map(
@@ -15,7 +14,7 @@ function renderProjects() {
           <div class="text-box">
             <p class="text">${project.detail}</p>
             <ul class="label">
-              ${project.label.map((item) => `<li>${item}</li>`).join("")}
+              ${Array.isArray(project.label) ? project.label.map((item) => `<li>${item}</li>`).join("") : ""}
             </ul>
           </div>
         </a>
@@ -25,12 +24,12 @@ function renderProjects() {
     .join("");
 }
 
-// ✅ jQuery가 로드된 후 실행되도록 조정
 $(() => {
-  renderProjects(); // ✅ jQuery 안에서 실행
+  renderProjects();
 
   // smooth scroll
   const lenis = new Lenis();
+  lenis.start();
 
   function raf(time) {
     lenis.raf(time);
@@ -38,26 +37,27 @@ $(() => {
   }
   requestAnimationFrame(raf);
 
-  // 마우스 커서
+  // 마우스 커서 애니메이션 최적화
   const cursor = document.querySelector(".cursor");
+  let mouseX = 0, mouseY = 0, isMoving = false;
 
   document.addEventListener("mousemove", (e) => {
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
-    cursor.animate(
-      {
-        top: `${e.clientY}px`,
-        left: `${e.clientX}px`,
-      },
-      { duration: 300, fill: "forwards" }
-    );
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!isMoving) {
+      isMoving = true;
+      requestAnimationFrame(updateCursor);
+    }
   });
 
-  document.addEventListener("mousedown", () => cursor.classList.add("clicked"));
-  document.addEventListener("mouseup", () =>
-    cursor.classList.remove("clicked")
-  );
+  function updateCursor() {
+    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    isMoving = false;
+  }
 
+  document.addEventListener("mousedown", () => cursor.classList.add("clicked"));
+  document.addEventListener("mouseup", () => cursor.classList.remove("clicked"));
   $("a, button").on("mouseover", () => cursor.classList.add("pointer"));
   $("a, button").on("mouseout", () => cursor.classList.remove("pointer"));
 
@@ -75,4 +75,32 @@ $(() => {
     $menuBtn.removeClass("on");
     $gnbWrap.removeClass("open");
   });
+
+  // fadeUp animation 최적화
+  function fadeUp() {
+    let $window = $(window);
+    let delayPosition = 50, windowHeight;
+
+    function insertTargetPosition() {
+      windowHeight = $window.height();
+      $(".fade-wrap.fade-up .fade-box").each(function () {
+        $(this).data("offsetTop", $(this).offset().top);
+      });
+    }
+
+    insertTargetPosition();
+    $window.on("resize", insertTargetPosition);
+
+    $window.on("scroll", function () {
+      let position = $window.scrollTop() + windowHeight - delayPosition;
+      $(".fade-wrap.fade-up .fade-box").each(function () {
+        if (!$(this).hasClass("fadeUp") && $(this).data("offsetTop") < position) {
+          $(this).addClass("fadeUp");
+        } else if ($(this).hasClass("fadeUp") && $(this).data("offsetTop") > position) {
+          $(this).removeClass("fadeUp");
+        }
+      });
+    });
+  }
+  fadeUp();
 });

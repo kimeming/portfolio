@@ -96,9 +96,15 @@ body {
   flex-direction: column;
 }
 // 폰트 굵기 스타일
-.medium {font-weight: 500;}
-.semibold {font-weight: 600;}
-.bold {font-weight: 700;}
+.medium {
+  font-weight: 500;
+}
+.semibold {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
 
 // 인풋 등 스타일
 input,
@@ -114,10 +120,57 @@ table {
   letter-spacing: -1px;
   appearance: none;
   -webkit-appearance: none;
-  
 }
 
 .point {
   color: $point-color;
 }
 
+/* fade up effect s */
+.fade-wrap.fade-up {
+  overflow: hidden;
+}
+.fade-wrap.fade-up .fade-box.fadeUp {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-wrap.fade-up .fade-box {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s;
+}
+/* fade up effect e */
+
+/* custom cursor s - pc에서만 노출됨 */
+@media screen and (min-width: 1024px) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: -1.5rem;
+    background: var(--point-color);
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    mix-blend-mode: difference;
+    transition: 0.3s;
+  }
+  .cursor.clicked {
+    background-color: var(--darkpink);
+  }
+  .cursor.pointer {
+    scale: 3;
+  }
+}
+
+@media (any-pointer: fine) {
+  .cursor {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+
+/* custom cursor e */

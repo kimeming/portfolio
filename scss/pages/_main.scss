@@ -64,6 +64,19 @@
     width: 100%;
     text-align: center;
     padding: 0 18px;
+    animation: fadeIn 1s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    translate: -50% 0;
+  }
+
+  100% {
+    opacity: 1;
+    translate: -50% -50%;
   }
 }
 
