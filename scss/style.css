@@ -190,22 +190,22 @@ iframe {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../../font/Pretendard-Regular.woff") format("woff");
+  src: url("../font/Pretendard-Regular.woff") format("woff");
   font-weight: 400;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("../../font/Pretendard-Medium.woff") format("woff");
+  src: url("../font/Pretendard-Medium.woff") format("woff");
   font-weight: 500;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("../../font/Pretendard-Bold.woff") format("woff");
+  src: url("../font/Pretendard-Bold.woff") format("woff");
   font-weight: 700;
 }
 @font-face {
   font-family: "Moderniz";
-  src: url("../../font/Moderniz.woff") format("woff");
+  src: url("../font/Moderniz.woff") format("woff");
   font-weight: 700;
 }
 .header {
@@ -345,6 +345,11 @@ iframe {
   }
   .header-util .menu-btn .line::after {
     bottom: -11px;
+  }
+}
+@media (min-width: 1200px) {
+  .header {
+    height: 85px;
   }
 }
 .footer {
