@@ -15,7 +15,7 @@
 .section-tit {
   font-family: $moderniz;
   font-weight: 700;
-  font-size: 9vw;
+  font-size: 10vw;
 }
 
 .contents-wrap {
@@ -100,7 +100,7 @@
       padding: 2em 0;
       word-break: keep-all;
       p {
-        font-size: 2em;
+        font-size: 2.2em;
         font-weight: 700;
         margin-bottom: 0.5em;
       }
@@ -111,6 +111,41 @@
     }
   }
 }
+
+.skill-list {
+  display: flex;
+  gap: 1em;
+  margin-top: 2em;
+  img {
+    transition: translate .3s;
+    translate: 0 0;
+  }
+}
+
+@include tablet {
+  .skill-list {
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+
+@include tablet {
+  .skill-list {
+    img {
+      width: 48px;
+      height: 48px;
+      &:hover {
+        translate: 0 -1em;
+      }
+    }
+  }
+}
+
+
+
 
 // section personal
 .project-wrap {
@@ -200,10 +235,12 @@
     .label {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.3em 1em;
       > li {
         &:first-child {
           width: 100%;
+          text-align: center;
         }
         &:not(:first-child) {
           color: #bbb;
@@ -218,6 +255,14 @@
     .text-box {
       .title {
         font-size: 4em;
+      }
+
+      .label {
+        > li {
+          &:first-child {
+            width: fit-content;
+          }
+        }
       }
     }
   }
@@ -238,9 +283,13 @@
   margin-top: 2em;
   > li {
     background-color: $black;
-    padding: 2em 0;
     border-bottom: 1px solid #666;
-    transition: padding 0.4s ease-out, background-color 0.3s;
+    transition: background-color 0.3s;
+    > a {
+      display: block;
+      padding: 2em 0;
+      transition: padding 0.4s ease-out;
+    }
   }
 
   .index {
@@ -261,7 +310,7 @@
   }
 
   .label {
-    font-size: 14px;
+    font-size: .9em;
     color: #bbb;
     display: flex;
     flex-wrap: wrap;
@@ -275,15 +324,31 @@
 }
 @include sdesktop {
   .project-list {
-    > li {
+    > li > a {
       padding: 2em;
     }
     > li:hover {
       background-color: rgba(255, 255, 255, 0.2);
-      padding-left: 6em;
+      a {
+        padding-left: 6em;
+      }
     }
   }
 }
 .sub-text {
   padding: 1em 0;
+}
+
+.underline {
+  position: relative;
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+  }
 }

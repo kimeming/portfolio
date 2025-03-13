@@ -23,19 +23,7 @@
     font-size: max(7vw, 40px);
     font-family: $moderniz;
     position: relative;
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 10px;
-      width: 0;
-      height: 10px;
-      background-color: rgba(255,255,255,0.3);
-      transition: width .4s;
-    }
-    &:hover::after {
-      width: 100%;
-    }
+    text-align: center;
   }
 
   .link-list {
@@ -54,15 +42,4 @@
 
 .copyright {
   text-align: center;
-}
-
-@include desktop{
-  .contact-wrap {
-    p {
-      &::after {
-        height: 25px;
-        bottom: 25px;
-      }
-    }
-  }
 }

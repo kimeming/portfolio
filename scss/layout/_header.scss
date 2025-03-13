@@ -17,13 +17,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  mix-blend-mode: difference;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 700;
   font-family: $moderniz;
+  mix-blend-mode: difference;
+  line-height: 1;
 }
 
 .gnb-wrap {
