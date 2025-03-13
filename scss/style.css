@@ -653,9 +653,12 @@ iframe {
 .project-box .text-box .label {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 0.3em 1em;
 }
-.project-box .text-box .label li:not(:first-child) {
+.project-box .text-box .label > li:first-child {
+  width: 100%;
+}
+.project-box .text-box .label > li:not(:first-child) {
   color: #bbb;
 }
 
@@ -673,13 +676,9 @@ iframe {
   margin-top: 2em;
 }
 .project-list > li {
-  padding: 2em;
+  padding: 2em 0;
   border-bottom: 1px solid #666;
   transition: padding 0.4s ease-out, background-color 0.3s;
-}
-.project-list > li:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding-left: 6em;
 }
 .project-list .index {
   display: block;
@@ -700,7 +699,20 @@ iframe {
   font-size: 14px;
   color: #bbb;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.3em;
+}
+.project-list .label > li:first-child {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .project-list .project-list > li {
+    padding: 2em;
+  }
+  .project-list .project-list > li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-left: 6em;
+  }
 }
 
 .sub-text {
